@@ -13,9 +13,9 @@ namespace XamarinCardStackViewTest
 	[Activity(Label = "XamarinCardStackViewTest", MainLauncher = true)]
 	public class MainActivity : AppCompatActivity
 	{
-		private ProgressBar progressBar;
-		private CardStackView cardStackView;
-		private TouristSpotCardAdapter adapter;
+		private ProgressBar _progressBar;
+		private CardStackView _cardStackView;
+		private TouristSpotCardAdapter _adapter;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -70,7 +70,7 @@ namespace XamarinCardStackViewTest
 
 		private List<TouristSpot> CreateTouristSpots()
 		{
-			List<TouristSpot> spots = new List<TouristSpot>
+			var spots = new List<TouristSpot>
 			{
 				new TouristSpot("Yasaka Shrine", "Kyoto", "https://source.unsplash.com/Xq1ntWruZQI/600x800"),
 				new TouristSpot("Fushimi Inari Shrine", "Kyoto", "https://source.unsplash.com/NYyCqdBOKwc/600x800"),
@@ -88,27 +88,27 @@ namespace XamarinCardStackViewTest
 
 		private TouristSpotCardAdapter CreateTouristSpotCardAdapter()
 		{
-			TouristSpotCardAdapter adapter = new TouristSpotCardAdapter(this);
+			var adapter = new TouristSpotCardAdapter(this);
 			adapter.AddAll(CreateTouristSpots());
 			return adapter;
 		}
 
 		private void Setup()
 		{
-			progressBar = FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
+			_progressBar = FindViewById<ProgressBar>(Resource.Id.activity_main_progress_bar);
 
-			cardStackView = FindViewById<CardStackView>(Resource.Id.CardStackView);
-			cardStackView.CardReversed += (sender, e) => Log.Debug("Debug", "OnCardReversed");
-			cardStackView.CardDragging += (sender, e) => Log.Debug("Debug", "OnCardDragging");
-			cardStackView.CardMovedToOrigin += (sender, e) => Log.Debug("Debug", "OnCardMovedToOrigin");
-			cardStackView.CardClicked += (sender, e) => Log.Debug("CardStackView", $"onCardClicked: {e.Index}");
-			cardStackView.CardSwiped += (sender, e) =>
+			_cardStackView = FindViewById<CardStackView>(Resource.Id.CardStackView);
+			_cardStackView.CardReversed += (sender, e) => Log.Debug("Debug", "OnCardReversed");
+			_cardStackView.CardDragging += (sender, e) => Log.Debug("Debug", "OnCardDragging");
+			_cardStackView.CardMovedToOrigin += (sender, e) => Log.Debug("Debug", "OnCardMovedToOrigin");
+			_cardStackView.CardClicked += (sender, e) => Log.Debug("CardStackView", $"onCardClicked: {e.Index}");
+			_cardStackView.CardSwiped += (sender, e) =>
 			{
 				Log.Debug("CardStackView", $"onCardSwiped: {e.Direction.ToString()}");
-				Log.Debug("CardStackView", $"topIndex: {cardStackView.TopIndex}");
-				if (cardStackView.TopIndex == adapter.Count - 5)
+				Log.Debug("CardStackView", $"topIndex: {_cardStackView.TopIndex}");
+				if (_cardStackView.TopIndex == _adapter.Count - 5)
 				{
-					Log.Debug("CardStackView", "Paginate: " + cardStackView.TopIndex);
+					Log.Debug("CardStackView", "Paginate: " + _cardStackView.TopIndex);
 					Paginate();
 				}
 			};
@@ -116,87 +116,87 @@ namespace XamarinCardStackViewTest
 
 		private void Reload()
 		{
-			cardStackView.Visibility = ViewStates.Gone;
-			progressBar.Visibility = ViewStates.Visible;
+			_cardStackView.Visibility = ViewStates.Gone;
+			_progressBar.Visibility = ViewStates.Visible;
 			new Handler().PostDelayed(() =>
 			{
-				adapter = CreateTouristSpotCardAdapter();
-				cardStackView.SetAdapter(adapter);
-				cardStackView.Visibility = ViewStates.Visible;
-				progressBar.Visibility = ViewStates.Gone;
+				_adapter = CreateTouristSpotCardAdapter();
+				_cardStackView.SetAdapter(_adapter);
+				_cardStackView.Visibility = ViewStates.Visible;
+				_progressBar.Visibility = ViewStates.Gone;
 			}, 1000);
 		}
 
 		private List<TouristSpot> ExtractRemainingTouristSpots()
 		{
-			List<TouristSpot> spots = new List<TouristSpot>();
-			for (int i = cardStackView.TopIndex; i < adapter.Count; i++)
+			var spots = new List<TouristSpot>();
+			for (var i = _cardStackView.TopIndex; i < _adapter.Count; i++)
 			{
-				spots.Add(adapter.GetItem(i));
+				spots.Add(_adapter.GetItem(i));
 			}
 			return spots;
 		}
 
 		private void AddFirst()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			spots.Insert(0, CreateTouristSpot());
-			adapter.Clear();
-			adapter.AddAll(spots);
-			adapter.NotifyDataSetChanged();
+			_adapter.Clear();
+			_adapter.AddAll(spots);
+			_adapter.NotifyDataSetChanged();
 		}
 
 		private void AddLast()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			spots.Insert(spots.Count - 1, CreateTouristSpot());
-			adapter.Clear();
-			adapter.AddAll(spots);
-			adapter.NotifyDataSetChanged();
+			_adapter.Clear();
+			_adapter.AddAll(spots);
+			_adapter.NotifyDataSetChanged();
 		}
 
 		private void RemoveFirst()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			if (spots.Count == 0)
 			{
 				return;
 			}
 			spots.RemoveAt(0);
-			adapter.Clear();
-			adapter.AddAll(spots);
-			adapter.NotifyDataSetChanged();
+			_adapter.Clear();
+			_adapter.AddAll(spots);
+			_adapter.NotifyDataSetChanged();
 		}
 
 		private void RemoveLast()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			if (spots.Count == 0)
 			{
 				return;
 			}
 			spots.RemoveAt(spots.Count - 1);
-			adapter.Clear();
-			adapter.AddAll(spots);
-			adapter.NotifyDataSetChanged();
+			_adapter.Clear();
+			_adapter.AddAll(spots);
+			_adapter.NotifyDataSetChanged();
 		}
 
 		private void Paginate()
 		{
-			cardStackView.SetPaginationReserved();
-			adapter.AddAll(CreateTouristSpots());
-			adapter.NotifyDataSetChanged();
+			_cardStackView.SetPaginationReserved();
+			_adapter.AddAll(CreateTouristSpots());
+			_adapter.NotifyDataSetChanged();
 		}
 
 		public void SwipeLeft()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			if (spots.Count == 0)
 			{
 				return;
 			}
 
-			View target = cardStackView.TopView;
+			View target = _cardStackView.TopView;
 
 			ValueAnimator rotation = ObjectAnimator.OfPropertyValuesHolder(target, PropertyValuesHolder.OfFloat("rotation", -10f));
 			rotation.SetDuration(200);
@@ -206,21 +206,21 @@ namespace XamarinCardStackViewTest
 			translateY.StartDelay = 100;
 			translateX.SetDuration(500);
 			translateY.SetDuration(500);
-			AnimatorSet set = new AnimatorSet();
+			var set = new AnimatorSet();
 			set.PlayTogether(rotation, translateX, translateY);
 
-			cardStackView.Swipe(SwipeDirection.Left, set);
+			_cardStackView.Swipe(SwipeDirection.Left, set);
 		}
 
 		public void SwipeRight()
 		{
-			List<TouristSpot> spots = ExtractRemainingTouristSpots();
+			var spots = ExtractRemainingTouristSpots();
 			if (spots.Count == 0)
 			{
 				return;
 			}
 
-			View target = cardStackView.TopView;
+			View target = _cardStackView.TopView;
 
 			ValueAnimator rotation = ObjectAnimator.OfPropertyValuesHolder(target, PropertyValuesHolder.OfFloat("rotation", 10f));
 			rotation.SetDuration(200);
@@ -230,15 +230,15 @@ namespace XamarinCardStackViewTest
 			translateY.StartDelay = 100;
 			translateX.SetDuration(500);
 			translateY.SetDuration(500);
-			AnimatorSet set = new AnimatorSet();
+			var set = new AnimatorSet();
 			set.PlayTogether(rotation, translateX, translateY);
 
-			cardStackView.Swipe(SwipeDirection.Right, set);
+			_cardStackView.Swipe(SwipeDirection.Right, set);
 		}
 
 		private void Reverse()
 		{
-			cardStackView.Reverse();
+			_cardStackView.Reverse();
 		}
 	}
 }
