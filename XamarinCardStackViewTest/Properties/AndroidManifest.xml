@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="XamarinCardStackViewTest.XamarinCardStackViewTest" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="16" />
-	<application android:allowBackup="true" android:label="@string/app_name" android:theme="@style/Theme.AppCompat.Light"></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="XamarinCardStackViewTest.XamarinCardStackViewTest" android:versionCode="1" android:versionName="1.0"
+          android:installLocation="auto">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31"/>
+    <application android:allowBackup="false" android:label="@string/app_name"
+                 android:icon="@mipmap/ic_launcher"
+                 android:roundIcon="@mipmap/ic_launcher_round"
+                 android:theme="@style/Theme.AppCompat.Light.NoActionBar"></application>
 </manifest>

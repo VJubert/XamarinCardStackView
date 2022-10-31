@@ -13,7 +13,4 @@
   <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardDragging']/parameter[@name='p1']" name="name">ratio</attr>
   <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardSwiped']/parameter[@name='p0']" name="name">direction</attr>
 
-
-  
-
 </metadata>

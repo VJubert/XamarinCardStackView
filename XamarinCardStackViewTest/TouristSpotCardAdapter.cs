@@ -1,55 +1,59 @@
 ﻿using System;
-using Android.Content;
+using System.Collections.Generic;
+using Android.App;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AndroidX.RecyclerView.Widget;
 using Bumptech.Glide;
+using JetBrains.Annotations;
 
 namespace XamarinCardStackViewTest
 {
-	public class TouristSpotCardAdapter : ArrayAdapter<TouristSpot>
+	public class SpotViewHolder : RecyclerView.ViewHolder
 	{
-		public TouristSpotCardAdapter(Context context) : base(context, 0) { }
+		public TextView Name;
+		public TextView City;
+		public ImageView Image;
 
-		public override View GetView(int position, View contentView, ViewGroup parent)
+		public SpotViewHolder([NotNull] View itemView) : base(itemView)
 		{
-			ViewHolder holder;
-
-			if (contentView == null)
-			{
-				LayoutInflater inflater = LayoutInflater.From(Context);
-				contentView = inflater.Inflate(Resource.Layout.item_tourist_spot_card, parent, false);
-				holder = new ViewHolder(contentView);
-				contentView.Tag = holder;
-			}
-			else
-			{
-				holder = (ViewHolder)contentView.Tag;
-			}
-
-			TouristSpot spot = GetItem(position);
-
-			holder.Name.Text = spot.Name;
-			holder.City.Text = spot.City;
-			Glide.With(Context).Load(spot.Url).Into(holder.Image);
-
-			return contentView;
+			Name = itemView.FindViewById<TextView>(Resource.Id.item_name);
+			City = itemView.FindViewById<TextView>(Resource.Id.item_city);
+			Image = itemView.FindViewById<ImageView>(Resource.Id.item_image);
 		}
 
-		private class ViewHolder : Java.Lang.Object
+		protected SpotViewHolder(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
+	}
+
+	public class CardStackAdapter : RecyclerView.Adapter
+	{
+		public List<TouristSpot> Spots { get; set; }
+
+		public CardStackAdapter() { }
+		protected CardStackAdapter(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer) { }
+
+		public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
 		{
-			public TextView Name { get; }
-			public TextView City { get; }
-			public ImageView Image { get; }
-
-			public ViewHolder(View view)
+			TouristSpot spot = Spots[position];
+			var cell = (SpotViewHolder)holder;
+			cell.Name.Text = $"{spot.Id}. ${spot.Name}";
+			cell.City.Text = spot.City;
+			Glide.With(cell.Image)
+				.Load(spot.Url)
+				.Into(cell.Image);
+			cell.ItemView.Click += (_, _) =>
 			{
-				Name = view.FindViewById<TextView>(Resource.Id.item_tourist_spot_card_name);
-				City = view.FindViewById<TextView>(Resource.Id.item_tourist_spot_card_city);
-				Image = view.FindViewById<ImageView>(Resource.Id.item_tourist_spot_card_image);
-			}
-
-			protected ViewHolder(IntPtr javaRef, JniHandleOwnership transfer) : base(javaRef, transfer) { }
+				Toast.MakeText(Application.Context, spot.Name, ToastLength.Short)?.Show();
+			};
 		}
+
+		public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
+		{
+			LayoutInflater inflater = LayoutInflater.From(parent.Context);
+			return new SpotViewHolder(inflater!.Inflate(Resource.Layout.item_spot, parent, false)!);
+		}
+
+		public override int ItemCount => Spots?.Count ?? 0;
 	}
 }
