@@ -1,61 +1,19 @@
 ﻿<metadata>
   <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']" name="managedName">Com.Yuyakaido.Android.CardStackView</attr>
   <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']" name="managedName">Com.Yuyakaido.Android.CardStackView.Internal</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='Duration']" name="managedName">DurationEnum</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardStackState.Status']" name="managedName">StatusEnum</attr>
 
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackView.CardEventListener']/method[@name='onCardClicked']/parameter[@name='p0']" name="name">index</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackView.CardEventListener']/method[@name='onCardDragging']/parameter[@name='p0']" name="name">percentX</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackView.CardEventListener']/method[@name='onCardDragging']/parameter[@name='p1']" name="name">percentY</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackView.CardEventListener']/method[@name='onCardSwiped']/parameter[@name='p0']" name="name">direction</attr>
 
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='swipe']/parameter[@name='p0']" name="name">point</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='swipe']/parameter[@name='p1']" name="name">direction</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setVisibleCount']/parameter[@name='p0']" name="name">visibleCount</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setTranslationDiff']/parameter[@name='p0']" name="name">translationDiff</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setSwipeThreshold']/parameter[@name='p0']" name="name">swipeThreshold</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setAdapter']/parameter[@name='p0']" name="name">adapter</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setCardEventListener']/parameter[@name='p0']" name="name">listener</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setScaleDiff']/parameter[@name='p0']" name="name">scaleDiff</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setStackFrom']/parameter[@name='p0']" name="name">stackFrom</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setElevationEnabled']/parameter[@name='p0']" name="name">isElevationEnabled</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setSwipeEnabled']/parameter[@name='p0']" name="name">isSwipeEnabled</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setSwipeDirection']/parameter[@name='p0']" name="name">swipeDirection</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setLeftOverlay']/parameter[@name='p0']" name="name">leftOverlay</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setRightOverlay']/parameter[@name='p0']" name="name">rightOverlay</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setBottomOverlay']/parameter[@name='p0']" name="name">bottomOverlay</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='setTopOverlay']/parameter[@name='p0']" name="name">topOverlay</attr>  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='performReverse']/parameter[@name='p0']" name="name">point</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='performReverse']/parameter[@name='p1']" name="name">prevView</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='CardStackView']/method[@name='performReverse']/parameter[@name='p2']" name="name">listener</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardAppeared']/parameter[@name='p0']" name="name">view</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardAppeared']/parameter[@name='p1']" name="name">position</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardDisappeared']/parameter[@name='p0']" name="name">view</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardDisappeared']/parameter[@name='p1']" name="name">position</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardDragging']/parameter[@name='p0']" name="name">direction</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardDragging']/parameter[@name='p1']" name="name">ratio</attr>
+  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/interface[@name='CardStackListener']/method[@name='onCardSwiped']/parameter[@name='p0']" name="name">direction</attr>
+
+
   
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview']/class[@name='SwipeDirection']/method[@name='from']/parameter[@name='p0']" name="name">value</attr>
-
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setContainerEventListener']/parameter[@name='p0']" name="name">listener</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setCardStackOption']/parameter[@name='p0']" name="name">option</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setDraggable']/parameter[@name='p0']" name="name">isDraggable</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setOverlay']/parameter[@name='p0']" name="name">left</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setOverlay']/parameter[@name='p1']" name="name">right</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setOverlay']/parameter[@name='p2']" name="name">bottom</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setOverlay']/parameter[@name='p3']" name="name">top</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='CardContainerView']/method[@name='setOverlayAlpha']/parameter[@name='p0']" name="name">alpha</attr>
-  
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/interface[@name='CardContainerView.ContainerEventListener']/method[@name='onContainerDragging']/parameter[@name='p0']" name="name">percentX</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/interface[@name='CardContainerView.ContainerEventListener']/method[@name='onContainerDragging']/parameter[@name='p1']" name="name">percentY</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/interface[@name='CardContainerView.ContainerEventListener']/method[@name='onContainerSwiped']/parameter[@name='p0']" name="name">point</attr>
-  <attr path="/api/package[@name='com.yuyakaido.android.cardstackview.internal']/interface[@name='CardContainerView.ContainerEventListener']/method[@name='onContainerSwiped']/parameter[@name='p1']" name="name">direction</attr>
-
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getQuadrant']/parameter[@name='p0']" name="name">x1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getQuadrant']/parameter[@name='p1']" name="name">x2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getQuadrant']/parameter[@name='p2']" name="name">y1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getQuadrant']/parameter[@name='p3']" name="name">y2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getTargetPoint']/parameter[@name='p0']" name="name">x1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getTargetPoint']/parameter[@name='p1']" name="name">x2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getTargetPoint']/parameter[@name='p2']" name="name">y1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getTargetPoint']/parameter[@name='p3']" name="name">y2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getRadian']/parameter[@name='p0']" name="name">x1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getRadian']/parameter[@name='p1']" name="name">x2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getRadian']/parameter[@name='p2']" name="name">y1</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='getRadian']/parameter[@name='p3']" name="name">y2</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='toPx']/parameter[@name='p0']" name="name">context</attr>
-  <attr path="api/package[@name='com.yuyakaido.android.cardstackview.internal']/class[@name='Util']/method[@name='toPx']/parameter[@name='p1']" name="name">dp</attr>
 
 </metadata>
