@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
 	<metadata>
-		<id>Xmf2.NavigationGraph</id>
-		<title>Xmf2.NavigationGraph</title>
+		<id>XamarinCardStackView</id>
+		<title>XamarinCardStackView</title>
 		<version>2.3.4</version>
 		<authors>VJubert</authors>
 		<owners>VJubert</owners>
