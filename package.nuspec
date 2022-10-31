@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>Xmf2.NavigationGraph</id>
+		<title>Xmf2.NavigationGraph</title>
+		<version>2.3.4</version>
+		<authors>VJubert</authors>
+		<owners>VJubert</owners>
+		<projectUrl>https://github.com/VJubert/XamarinCardStackView</projectUrl>
+		<licenseUrl>https://github.com/VJubert/XamarinCardStackView/blob/master/LICENSE</licenseUrl>
+		<repository url="https://github.com/VJubert/XamarinCardStackView.git" type="git"/>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>Xamarin binding of Android library CardStackView</description>
+		<releaseNotes>bind latest version</releaseNotes>
+		<copyright>Copyright VJubert 2022</copyright>
+		<tags></tags>
+		<dependencies>
+			<group targetFramework="monoandroid12.0">
+				<dependency id="Xamarin.AndroidX.RecyclerView" version="1.1.0.8"/>
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="XamarinCardStackView/bin/Debug/XamarinCardStackView.dll;XamarinCardStackView/bin/Debug/XamarinCardStackView.pdb" target="lib\monoandroid12.0"/>
+	</files>
+</package>
